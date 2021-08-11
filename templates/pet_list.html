@@ -1,0 +1,27 @@
+{% extends 'base.html' %} 
+
+{% block title %}Pets{% endblock %}
+
+{% block content %}
+<h1 class="text-center">All Pets</h1>
+
+{% for msg in get_flashed_messages() %}
+    <p class="ml-4">
+        {{ msg }}
+    </p>
+{% endfor %}
+
+<div class="row pets-listing">
+    {% for pet in pets %} 
+    <div class="col-3 mx-4 my-4">
+        <img src="{{ pet.photo_url }}" alt="pet photo" class="img-thumbnail">
+        <a href="/{{ pet.id }}">{{ pet.name }}</a>
+        {% if pet.available %} <b>is available!</b> {% endif %}
+    </div>
+    {% else %}
+    <div class="col-12">No pets available.</div>
+    {% endfor %}
+</div>
+
+<a href="/add" class="btn btn-primary ml-4 my-4">Add a pet</a>
+{% endblock %}
