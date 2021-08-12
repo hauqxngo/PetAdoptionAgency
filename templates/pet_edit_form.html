@@ -11,10 +11,11 @@
 
 <h2 class="text-center my-4">Update</h2>
 
-<form method="POST">
+<form method="POST" class="d-inline">
     {% include '_form.html' %} 
     <button class="btn btn-primary ml-4" type="submit">Update</button>
-    <!-- <a href="/{{ pet.id }}/delete" class="btn btn-danger ml-4">Delete</a> -->
 </form>
+
+<a href="/{{ pet.id }}/delete" class="btn btn-danger ml-auto d-inline">Delete</a>
 
 {% endblock %}
